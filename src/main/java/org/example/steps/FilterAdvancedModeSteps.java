@@ -45,9 +45,9 @@ public class FilterAdvancedModeSteps {
         new FilterAdvancedModePage().checkNameHeadphoneInSearch();
     }
 
-    @Step("проверить, что элементов на странице 29")
-    public void checkElementsCount() {
-        new FilterAdvancedModePage().checkCountElements();
+    @Step("проверить, что элементов на странице {0}")
+    public void checkElementsCount(long count) {
+        new FilterAdvancedModePage().checkCountElements(count);
     }
 
     @Step("нажать кнопку \"Посмотреть всё\"")

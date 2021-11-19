@@ -20,8 +20,13 @@ public class ScenarioSteps {
     }
 
     @And("^выбрать раздел \"Наушники\"$")
-    public void clickTV() {
-        electronicsSteps.stepClickButtonTVs();
+    public void clickTVHeadPhones() {
+        electronicsSteps.stepClickButtonTVsHeadphones();
+    }
+
+    @And("^выбрать раздел \"Телевизоры\"$")
+    public void clickTVs() {
+        electronicsSteps.stepClickButtonTVsTV();
     }
 
     @And("^зайти в расширенный поиск. кнопка \"Все фильтры\"$")
@@ -49,9 +54,9 @@ public class ScenarioSteps {
         filterAdvancedModeSteps.stepClickButtonShowOffers();
     }
 
-    @And("^проверить, что элементов на странице 29$")
-    public void checkCountElements() {
-        filterAdvancedModeSteps.checkElementsCount();
+    @And("^проверить, что элементов на странице (\\d+)$")
+    public void checkCountElements(long count) {
+        filterAdvancedModeSteps.checkElementsCount(count);
     }
 
     @And("^запомнить первый элемент в списке$")

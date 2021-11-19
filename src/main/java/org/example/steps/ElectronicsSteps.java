@@ -6,7 +6,12 @@ import org.example.pages.ElectronicsPage;
 public class ElectronicsSteps {
 
     @Step("выбрать раздел \"Наушники\"")
-    public void stepClickButtonTVs() {
+    public void stepClickButtonTVsHeadphones() {
         new ElectronicsPage().buttonHeadphones.click();
+    }
+
+    @Step("выбрать раздел \"Телевизоры\"")
+    public void stepClickButtonTVsTV() {
+        new ElectronicsPage().buttonTVs.click();
     }
 }

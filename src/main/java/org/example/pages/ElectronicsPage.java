@@ -11,6 +11,10 @@ public class ElectronicsPage extends BasePageObject {
     @FindBy(xpath = "//*[contains(@data-zone-data,'26893630')]//*[text()='Наушники и Bluetooth-гарнитуры']")
     public WebElement buttonHeadphones;
 
+    @FindBy(xpath = "//a[text()='Телевизоры']")
+    public WebElement buttonTVs;
+
+
     public ElectronicsPage() {
         PageFactory.initElements(BaseSteps.getDriver(), this);
         (new WebDriverWait(BaseSteps.getDriver(), 5))

@@ -9,7 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class FilterAdvancedModePage extends BasePageObject{
+public class FilterAdvancedModePage extends BasePageObject {
 
     @FindBy(xpath = "//*[@data-filter-id='glprice']//*[@data-prefix='от']/input")
     public WebElement fieldPriceFrom;
@@ -35,6 +35,12 @@ public class FilterAdvancedModePage extends BasePageObject{
     @FindBy(xpath = "//*[@data-r='search-button']")
     public WebElement buttonSearch;
 
+    @FindBy(xpath = "//*[@id='153061']")
+    public WebElement checkboxManufacturerSamsung;
+
+    @FindBy(xpath = "//*[@id='153074']")
+    public WebElement checkboxManufacturerLG;
+
     public FilterAdvancedModePage() {
         PageFactory.initElements(BaseSteps.getDriver(), this);
     }
@@ -53,6 +59,12 @@ public class FilterAdvancedModePage extends BasePageObject{
         switch (fieldName) {
             case "Beats":
                 checkboxBeats.click();
+                break;
+            case "Samsung":
+                checkboxManufacturerSamsung.click();
+                break;
+            case "LG":
+                checkboxManufacturerLG.click();
                 break;
             default:
                 throw new AssertionError("Чекбокс '" + fieldName + "' не объявлен на странице");
@@ -78,11 +90,12 @@ public class FilterAdvancedModePage extends BasePageObject{
         return BaseSteps.getDriver().findElement(By.xpath(xpath)).getAttribute("title").toUpperCase();
     }
 
-    public void checkCountElements() {
+    public void checkCountElements(long count2) {
         (new WebDriverWait(BaseSteps.getDriver(), 2))
                 .until(ExpectedConditions.visibilityOf(elementInList));
         int count = BaseSteps.getDriver().findElements(By.xpath("//*[@data-autotest-id='product-snippet']")).size();
-        Assert.assertEquals(29, count);
+        //Assert.assertEquals(count2, count);
+        Assert.assertTrue(count <= count2);
     }
 
     public void checkNameHeadphoneInSearch() {
