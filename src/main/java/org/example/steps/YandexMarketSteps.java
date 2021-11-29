@@ -16,4 +16,12 @@ public class YandexMarketSteps {
         driver.switchTo().window(String.valueOf(tabs2.get(1)));
         new YandexMarketPage().buttonElectronics.click();
     }
+
+    @Step("закрыть рекламу")
+    public void stepCloseBoard() throws InterruptedException {
+        sleep(3000);
+        ArrayList tabs2 = new ArrayList(driver.getWindowHandles());
+        driver.switchTo().window(String.valueOf(tabs2.get(1)));
+        new YandexMarketPage().buttonClose.click();
+    }
 }

@@ -16,6 +16,7 @@ public class FilterAdvancedModeSteps {
 
     @Step("выбрать производителя {0}")
     public void chooseManufacturers(String field) {
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();",new FilterAdvancedModePage().checkboxManufacturerSamsung);
         new FilterAdvancedModePage().selectHeadphone(field);
     }
 
@@ -41,7 +42,7 @@ public class FilterAdvancedModeSteps {
 
     @Step("проверить, что наименование товара соответствует запомненному значению.")
     public void checkName() {
-        BaseSteps.getDriver().manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        BaseSteps.getDriver().manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
         new FilterAdvancedModePage().checkNameHeadphoneInSearch();
     }
 

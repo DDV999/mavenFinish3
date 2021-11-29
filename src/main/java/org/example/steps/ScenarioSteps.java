@@ -24,6 +24,11 @@ public class ScenarioSteps {
         electronicsSteps.stepClickButtonTVsHeadphones();
     }
 
+    @And("^закрыть неожиданную рекламу$")
+    public void clickCloseboard() throws InterruptedException {
+        yandexMarketSteps.stepCloseBoard();
+    }
+
     @And("^выбрать раздел \"Телевизоры\"$")
     public void clickTVs() {
         electronicsSteps.stepClickButtonTVsTV();
