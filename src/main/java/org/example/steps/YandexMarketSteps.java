@@ -11,17 +11,19 @@ import static org.example.steps.BaseSteps.driver;
 public class YandexMarketSteps {
     @Step("выбрать раздел \"Электроника\"")
     public void stepClickButtonElectronics() throws InterruptedException {
-        sleep(3000);
-        ArrayList tabs2 = new ArrayList(driver.getWindowHandles());
-        driver.switchTo().window(String.valueOf(tabs2.get(1)));
+        activatePage();
         new YandexMarketPage().buttonElectronics.click();
     }
 
     @Step("закрыть рекламу")
     public void stepCloseBoard() throws InterruptedException {
+        activatePage();
+        new YandexMarketPage().buttonClose.click();
+    }
+
+    private void activatePage() throws InterruptedException {
         sleep(3000);
         ArrayList tabs2 = new ArrayList(driver.getWindowHandles());
         driver.switchTo().window(String.valueOf(tabs2.get(1)));
-        new YandexMarketPage().buttonClose.click();
     }
 }

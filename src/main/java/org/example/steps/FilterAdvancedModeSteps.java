@@ -4,8 +4,7 @@ import io.qameta.allure.Step;
 import org.example.pages.FilterAdvancedModePage;
 import org.openqa.selenium.JavascriptExecutor;
 
-import java.util.concurrent.TimeUnit;
-
+import static java.lang.Thread.sleep;
 import static org.example.steps.BaseSteps.driver;
 
 public class FilterAdvancedModeSteps {
@@ -41,8 +40,9 @@ public class FilterAdvancedModeSteps {
     }
 
     @Step("проверить, что наименование товара соответствует запомненному значению.")
-    public void checkName() {
-        BaseSteps.getDriver().manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
+    public void checkName() throws InterruptedException {
+        //BaseSteps.getDriver().manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
+        sleep(3000);
         new FilterAdvancedModePage().checkNameHeadphoneInSearch();
     }
 

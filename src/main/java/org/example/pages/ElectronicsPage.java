@@ -20,4 +20,17 @@ public class ElectronicsPage extends BasePageObject {
         (new WebDriverWait(BaseSteps.getDriver(), 5))
                 .until(ExpectedConditions.visibilityOf(buttonHeadphones));
     }
+
+    public void selectSubsection(String fieldName) {
+        switch (fieldName) {
+            case "Наушники":
+                buttonHeadphones.click();
+                break;
+            case "Телевизоры":
+                buttonTVs.click();
+                break;
+            default:
+                throw new AssertionError("Подраздел '" + fieldName + "' не объявлен на странице");
+        }
+    }
 }

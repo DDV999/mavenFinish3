@@ -14,24 +14,19 @@ public class ScenarioSteps {
         mainPageSteps.stepClickButtonYandexMarket();
     }
 
-    @And("^выбрать раздел \"Электроника\"$")
-    public void clickElectronics() throws InterruptedException {
-        yandexMarketSteps.stepClickButtonElectronics();
-    }
-
-    @And("^выбрать раздел \"Наушники\"$")
-    public void clickTVHeadPhones() {
-        electronicsSteps.stepClickButtonTVsHeadphones();
-    }
-
     @And("^закрыть неожиданную рекламу$")
     public void clickCloseboard() throws InterruptedException {
         yandexMarketSteps.stepCloseBoard();
     }
 
-    @And("^выбрать раздел \"Телевизоры\"$")
-    public void clickTVs() {
-        electronicsSteps.stepClickButtonTVsTV();
+    @And("^выбрать раздел \"Электроника\"$")
+    public void clickTVs() throws InterruptedException {
+        yandexMarketSteps.stepClickButtonElectronics();
+    }
+
+    @And("^выбрать подраздел \"(.+)\"$")
+    public void clickTVs(String field) {
+        electronicsSteps.chooseSubsection(field);
     }
 
     @And("^зайти в расширенный поиск. кнопка \"Все фильтры\"$")
@@ -80,7 +75,7 @@ public class ScenarioSteps {
     }
 
     @And("^проверить, что наименование товара соответствует запомненному значению.$")
-    public void checkThatTheNameOfProductMatchesStoredValue() {
+    public void checkThatTheNameOfProductMatchesStoredValue() throws InterruptedException {
         filterAdvancedModeSteps.checkName();
     }
 }
